@@ -712,11 +712,11 @@ class DreamGenerationMixin:
             
             
             # this allows user-defined token control of the intermediate steps
-            generation_tokens_hook_func(curr_idx, x, None)
             total_verification_time += time.time() - verification_time
             num_tokens_generated += num_accept
             
             acceptance_counts.append(num_accept)
+            generation_tokens_hook_func(curr_idx, x, acceptance_counts)
             
             if no_mask or has_eos:
                 break
