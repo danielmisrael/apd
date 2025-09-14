@@ -91,23 +91,23 @@ chmod +x scripts/*.sh
 # Reproduce Figure 6 (Pareto frontier)
 ./scripts/fig6.sh
 
-# Reproduce Table 1 (main results)
+# Reproduce Table 1 (baseline comparisons)
 ./scripts/tab1.sh
 ```
 
 ## Evaluation
 
-Run evaluations on standard benchmarks:
+Examples of custom evaluations on benchmarks:
 
 ```bash
-# GSM8K evaluation with APD
-python eval.py --dataset gsm8k --method apd --apd_mixture_weight 0.7
+# GSM8K evaluation with APD and R=0.7
+python eval.py --model_alias dream --task gsm8k --alg apd --apd_mixture_weight 0.7
 
-# GPQA evaluation with APD
-python eval.py --dataset gpqa --method apd --kv_window 16 --max_lookahead 100
+# GPQA evaluation with APD and W=16, M=100
+python eval.py --model_alias dream --task gpqa --alg apd --kv_window 16 --max_lookahead 100
 
-# Math evaluation with baseline methods
-python eval.py --dataset math --method entropy
+# Math evaluation with baseline method
+python eval.py --model_alias llada --task math --alg random
 ```
 
 ## Citation
