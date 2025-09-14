@@ -48,11 +48,11 @@ def parse_args():
     
     # APD-specific arguments
     parser.add_argument("--apd_mixture_weight", type=float, default=0.7,
-                       help="APD mixture weight (R parameter)")
+                       help="APD mixture weight (R parameter, between 0.0 and 1.0, higher is faster)")
     parser.add_argument("--kv_window", type=int, default=16,
-                       help="APD KV window size (W parameter)")
+                       help="APD KV window size (W parameter, greater than 0, lower is faster)")
     parser.add_argument("--max_lookahead", type=int, default=100,
-                       help="APD maximum lookahead (M parameter)")
+                       help="APD maximum lookahead (M parameter, greater than 0, lower is faster)")
     
     
     return parser.parse_args()
